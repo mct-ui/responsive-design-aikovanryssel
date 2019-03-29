@@ -1,7 +1,23 @@
 /*------------------------------------*\
   #FONTS
 \*------------------------------------*/
+@font-face {
+font-family: "HK Grotesk Web";
+font-weight: 200;
+src: url("../fonts/hkgrotesk-light-webfont.woff2") format("woff2"),url("../fonts/hkgrotesk-light-webfont.woff") format("woff");
+}
 
+@font-face {
+font-family: "HK Grotesk Web";
+font-weight: 400;
+src: url("../fonts/hkgrotesk-medium-webfont.woff2") format("woff2"),url("../fonts/hkgrotesk-medium-webfont.woff") format("woff");
+}
+
+@font-face {
+font-family: "HK Grotesk Web";
+font-weight: 600;
+src: url("../fonts/hkgrotesk-regular-webfont.woff2") format("woff2"),url("../fonts/hkgrotesk-regular-webfont.woff") format("woff");
+}
 /*------------------------------------*\
   #GENERIC
 \*------------------------------------*/
@@ -15,12 +31,19 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
+    font-family: "HK Grotesk",Helvetica, arial, sans-serif;
     color: #111;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+@media (min-width: 768px) {
+    html{
+        font-size: 20px;
+        line-height: 1.6;
+    }
+}
+
 
 *,
 *:before,
@@ -35,8 +58,9 @@ html {
  * Customize the background color to match your design.
  */
 
+
 ::selection {
-    background: #e85e00;
+    background: #5051DB;
     color: white;
     text-shadow: none;
 }
@@ -136,19 +160,20 @@ hr {
 }
 
 a {
-    color: RoyalBlue;
+    color: #3E3EA8;
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: BlueViolet;
+    color: #202024;
 }
 
 a:hover,
 a:focus {
-    color: Crimson;
+    color: #3E3EA8;
 }
+
 
 /*------------------------------------*\
   #OBJECTS
@@ -195,7 +220,7 @@ a:focus {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 90em; /* 90 * 16px = 1440px */
+    max-width: 56.4em; /* 56.4 * 16px = 1128px */
 }
 
 /*
@@ -213,10 +238,19 @@ a:focus {
     flex-wrap: wrap;
 }
 
-    .o-layout__item {
+.o-layout__item {
         width: 100%;
     }
+/*
+        Objects: List
+        ---
+        Small reusable object to remove default list styling from lists
+*/
 
+.o-list {
+    list-style: none;
+    padding: 0;
+    }
 /* gutter modifiers, these affect o-layout__item too */
 
 .o-layout--gutter {
@@ -318,7 +352,96 @@ a:focus {
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+.c-logo {
+    height: 32px;
+}
 
+.c-logo__symbol {
+    height: 100%;
+}
+
+@media (min-width:768px) {
+    .c-logo {
+        height: 40px;
+    }
+
+}
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .c-header__nav {
+        display: block;
+    }
+}
+
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
+
+.c-nav {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.c-nav__link {
+    text-decoration: none;
+    font-weight: 400;
+    padding: 8px 0;
+    display: block;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #202024;
+}
+
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #5051db;
+}
+
+@media (min-width: 768px) {
+    .c-nav__list {
+        display: flex;
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+
+    .c-nav__link {
+        padding: 8px 16px;
+    }
+}
+.is-selected .c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:focus{
+    color: #5051db;
+}
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active{
+    color: #6c6c75;
+}
+.c-nav__link:hover,
+.c-nav__link:focus{
+    color: :#5051db;
+}
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
