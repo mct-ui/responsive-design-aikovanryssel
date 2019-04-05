@@ -31,7 +31,7 @@ src: url("../fonts/hkgrotesk-regular-webfont.woff2") format("woff2"),url("../fon
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: "HK Grotesk",Helvetica, arial, sans-serif;
+    font-family: "HK Grotesk Web",Helvetica, arial, sans-serif;
     color: #111;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -184,6 +184,27 @@ a:focus {
     ---
     Creates a horizontal row that stretches the viewport and adds padding around children
 */
+.o-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.o-section + .o-section {
+    margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+        margin-top: 48px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .o-section--xl + .o-section--xl {
+        margin-top: 72px;
+    }
+}
 
 .o-row {
     position: relative;
@@ -203,7 +224,10 @@ a:focus {
         padding-left: 48px;
         padding-right: 48px;
     }
-
+    .o-row--md {
+        padding-top:48px;
+        padding-bottom: 24px;
+    }
     .o-row--lg {
         padding-top: 72px;
         padding-bottom: 48px;
@@ -451,6 +475,9 @@ a:focus {
     ---
     Utility classes to put specific max widths onto elements
 */
+.u-pt-clear{
+    padding-top: 0!important;
+}
 
 .u-max-width-xs {
     max-width: 18em !important;
